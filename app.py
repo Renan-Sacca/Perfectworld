@@ -40,14 +40,18 @@ def get_items():
 @app.route('/get_item_history/<int:id>', methods=['GET'])
 def get_item_history(id):
     histories = ItemHistory.query.filter_by(id=id).all()
-    return jsonify([
-        {
-            "id": history.id,
-            "atualizado": history.atualizado,
-            "venda": history.venda,
-            "compra": history.compra
-        } for history in histories
-    ])
+    item = Item.query.get(id)
+    if item:
+        return jsonify([
+            {
+                "id": history.id,
+                "nome": item.nome,
+                "atualizado": history.atualizado,
+                "venda": history.venda,
+                "compra": history.compra
+            } for history in histories
+        ])
+    return jsonify({"message": "Item not found"}), 404
 
 if __name__ == '__main__':
     app.run()
