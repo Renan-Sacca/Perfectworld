@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 itemRow.innerHTML = `
                     <span>${item.nome}</span>
                     <button onclick="viewItemDetails('${item.id}')">
-                        <img src="images/eye-icon.png" alt="View">
+                        <img src="{{ url_for('static', filename='images/udyr.png') }}" alt="">
                     </button>
                 `;
                 itemList.appendChild(itemRow);

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from database import db
 
@@ -10,6 +10,10 @@ db.init_app(app)
 CORS(app)
 
 from models import Item, ItemHistory
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 @app.route('/add_item', methods=['POST'])
 def add_item():
