@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Consulta de Itens</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#cadastro" id="nav-cadastro">Cadastro de Itens</a>
+        <a href="#consulta" id="nav-consulta">Consulta de Itens</a>
+    </nav>
+    <div class="container">
+        <div id="cadastro" class="screen">
+            <h1>Cadastro de Itens</h1>
+            <form id="cadastro-form">
+                <label for="item-name">Nome do Item:</label>
+                <input type="text" id="item-name" name="item-name" required>
+                <label for="item-id">ID do Item:</label>
+                <input type="text" id="item-id" name="item-id" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <div id="consulta" class="screen hidden">
+            <h1>Consulta de Itens</h1>
+            <div id="item-list">
+                <!-- Items will be populated here -->
+            </div>
+        </div>
+        <div id="detalhes" class="screen hidden">
+            <button id="back-to-list">Voltar para a Lista</button>
+            <h1>Detalhes do Item</h1>
+            <div id="item-details">
+                <!-- Item details will be displayed here -->
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,10 +1,13 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from database import db
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
+
+CORS(app)
 
 from models import Item, ItemHistory
 
